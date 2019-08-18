@@ -1,33 +1,56 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
+.app {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.coin {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: yellow;
 }
 
-@keyframes App-logo-spin {
+.fly {
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  animation: fly-coin 1 .5s linear forwards;
+}
+
+.coin0 {
+  animation-delay: 0s;
+}
+.coin1 {
+  animation-delay: .1s;
+}
+.coin2 {
+  animation-delay: .2s;
+}
+.coin3 {
+  animation-delay: .3s;
+}
+.coin4 {
+  animation-delay: .4s;
+}
+.coin5 {
+  animation-delay: .5s;
+}
+
+
+main {
+  padding: 30px;
+}
+
+@keyframes fly-coin {
   from {
-    transform: rotate(0deg);
+    top: 50vh;
+    left: 50vw;
+    transform: scale(1);
   }
   to {
-    transform: rotate(360deg);
+    top: 0;
+    left: 0;
+    transform: scale(0.6);
   }
 }

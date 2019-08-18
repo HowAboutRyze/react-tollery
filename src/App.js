@@ -1,26 +1,50 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {
+      coinList: []
+    }
+    this.coinRender = this.coinRender.bind(this);
+  }
+  coinRender() {
+    const list = [...new Array(6).keys()];
+    this.setState({ coinList: list });
+    setTimeout(() => {
+      this.setState({ coinList: [] });
+    }, 1000);
+  }
+  renderFly() {
+    return (
+      <div className="box">
+        {
+          this.coinList.map(item => <i className={"coin fly coin" + item } key={item}></i>)
+        }
+      </div>
+    )
+  }
+
+  render() {
+    return (
+      <div className="app">
+        <header className="header">
+          <i className="coin"></i>
+          100
+        </header>
+        <main className="header">
+          <button onClick={this.coinRender}>点我</button>
+          <div className="box">
+            {
+              this.state.coinList.map(item => <i className={"coin fly coin" + item } key={item}></i>)
+            }
+          </div>
+        </main>
+      </div>
+    );
+  }
 }
 
 export default App;

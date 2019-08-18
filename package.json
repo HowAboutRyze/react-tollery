@@ -1,7 +1,8 @@
 {
   "name": "react-tollery",
   "version": "0.1.0",
-  "private": true,
+  "description": "A tollery app",
+  "author": "HowAboutRyze <lizhongwei157@163.com>",
   "dependencies": {
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
