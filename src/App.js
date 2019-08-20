@@ -1,6 +1,9 @@
 import React from 'react';
 import './App.css';
 
+import ChineseName from './components/ChineseName';
+import TextareaInput from './components/TextareaInput';
+
 class App extends React.Component {
 
   constructor() {
@@ -42,6 +45,8 @@ class App extends React.Component {
             }
           </div>
         </main>
+        <ChineseName />
+        <TextareaInput />
       </div>
     );
   }
