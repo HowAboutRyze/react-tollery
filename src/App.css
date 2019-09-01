@@ -42,6 +42,18 @@ main {
   padding: 30px;
 }
 
+.xscroll-box {
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+}
+.xscroll-box > li {
+  width: 200px;
+  height: 100px;
+  background-color: yellowgreen;
+  margin-right: 10px;
+}
+
 @keyframes fly-coin {
   from {
     top: 50vh;

@@ -13,6 +13,55 @@ class App extends React.Component {
     }
     this.coinRender = this.coinRender.bind(this);
   }
+
+  componentDidMount() {
+    let preventUCDefault = (function() {
+      let startX = 0;
+      let diffY = 0;
+      const bindPreventTouch = function() {
+        console.log('bindPreventTouch')
+        document.documentElement.addEventListener('touchmove', function(e) {
+          e.preventDefault();
+        }, false);
+      };
+
+      return {
+        init : function(ul) {
+          console.log(ul)
+          const scrollWidth = ul.scrollWidth;
+
+          ul.addEventListener('touchstart', function(e) {
+            console.log('touchstart', e)
+              startX = e.touches[0].pageX;
+          });
+
+          ul.addEventListener('touchmove',function(e) {
+            const self = document.querySelector('.xscroll-box');
+            diffY = e.touches[0].pageX - startX;
+            console.log('touchmove', e, self.scrollLeft, diffY, scrollWidth - self.scrollLeft - ul.offsetWidth)
+            if(self.scrollLeft === 0 && diffY > 0) {
+              //到最左
+              bindPreventTouch();
+            }else if((scrollWidth - self.scrollLeft - ul.offsetWidth) < 1 && diffY < 0) {
+              //到最右
+              bindPreventTouch();
+            }
+          });
+
+          ul.addEventListener('touchend',function(e) {
+            console.log('touchend')
+            document.documentElement.removeEventListener('touchmove', function(e) {
+              e.preventDefault();
+            });
+          });
+        }
+      }
+    })();
+    
+    
+    preventUCDefault.init(document.querySelector('.xscroll-box'));
+  
+  }
   coinRender() {
     const list = [...new Array(6).keys()];
     this.setState({ coinList: list });
@@ -47,6 +96,20 @@ class App extends React.Component {
         </main>
         <ChineseName />
         <TextareaInput />
+        <ul className="xscroll-box">
+          <li>112</li>
+          <li>112</li>
+          <li>112</li>
+          <li>112</li>
+          <li>112</li>
+          <li>112</li>
+          <li>112</li>
+          <li>112</li>
+          <li>112</li>
+          <li>112</li>
+          <li>112</li>
+          <li>112</li>
+        </ul>
       </div>
     );
   }
