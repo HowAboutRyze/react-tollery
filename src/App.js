@@ -12,6 +12,7 @@ class App extends React.Component {
       coinList: []
     }
     this.coinRender = this.coinRender.bind(this);
+    this.videoEl = React.createRef();
   }
 
   componentDidMount() {
@@ -19,7 +20,7 @@ class App extends React.Component {
       let startX = 0;
       let diffY = 0;
       const bindPreventTouch = function() {
-        console.log('bindPreventTouch')
+        // console.log('bindPreventTouch')
         document.documentElement.addEventListener('touchmove', function(e) {
           e.preventDefault();
         }, false);
@@ -27,11 +28,11 @@ class App extends React.Component {
 
       return {
         init : function(ul) {
-          console.log(ul)
+          // console.log(ul)
           const scrollWidth = ul.scrollWidth;
 
           ul.addEventListener('touchstart', function(e) {
-            console.log('touchstart', e)
+            // console.log('touchstart', e)
               startX = e.touches[0].pageX;
           });
 
@@ -49,7 +50,7 @@ class App extends React.Component {
           });
 
           ul.addEventListener('touchend',function(e) {
-            console.log('touchend')
+            // console.log('touchend')
             document.documentElement.removeEventListener('touchmove', function(e) {
               e.preventDefault();
             });
@@ -60,7 +61,11 @@ class App extends React.Component {
     
     
     preventUCDefault.init(document.querySelector('.xscroll-box'));
-  
+
+    // uc浏览器左右翻页的功能，好像这两句就解决了
+    // document.documentElement.addEventListener('touchmove', function(e) {
+    //   e.preventDefault();
+    // }, false);
   }
   coinRender() {
     const list = [...new Array(6).keys()];
@@ -78,6 +83,9 @@ class App extends React.Component {
       </div>
     )
   }
+  playVideo = () => {
+    this.videoEl.current.play();
+  }
 
   render() {
     return (
@@ -86,7 +94,7 @@ class App extends React.Component {
           <i className="coin"></i>
           100
         </header>
-        <main className="header">
+        <main className="header-btn">
           <button onClick={this.coinRender}>点我</button>
           <div className="box">
             {
@@ -110,6 +118,16 @@ class App extends React.Component {
           <li>112</li>
           <li>112</li>
         </ul>
+        <div className="video-wrap">
+          <video
+            ref={this.videoEl}
+            src="https://www.w3school.com.cn/i/movie.ogg"
+            poster="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574578866003&di=635859f0959d5053392e7f8bef507e60&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20181118%2F506c96391e1d4b7f8a27baf23c902369.gif"
+            width="300"
+            height="200"
+            onClick={this.playVideo}
+          ></video>
+        </div>
       </div>
     );
   }

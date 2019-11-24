@@ -30,7 +30,7 @@ class BaseInput extends React.Component {
                           value={this.props.value}/>
             </span>
         }
-        return <div style={{height: '50px'}}>
+        return <div style={{height: '200px'}}>
             {DOM}
             {/* 其次，允许将额外补充内容添加到这里，实用this.props.children作为slot插槽 */}
             {this.props.children}

@@ -2,7 +2,9 @@
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
 }
-
+.header {
+  height: 400px;
+}
 .coin {
   display: inline-block;
   width: 20px;
@@ -48,10 +50,12 @@ main {
   overflow-x: scroll;
 }
 .xscroll-box > li {
+  flex-shrink: 0;
   width: 200px;
   height: 100px;
   background-color: yellowgreen;
   margin-right: 10px;
+  margin-bottom: 50px;
 }
 
 @keyframes fly-coin {
@@ -65,4 +69,8 @@ main {
     left: 0;
     transform: scale(0.6);
   }
+}
+
+.video-wrap {
+  padding: 50px 0;
 }
