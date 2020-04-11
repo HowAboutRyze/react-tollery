@@ -132,5 +132,9 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "faker": "^4.1.0",
+    "node-sass": "^4.13.1"
   }
 }

@@ -1,0 +1,75 @@
+.page-index {
+	
+	.header {
+		height: 400px;
+	}
+	.coin {
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		background: yellow;
+	}
+	
+	.fly {
+		position: absolute;
+		top: 50vh;
+		left: 50vw;
+		animation: fly-coin 1 .5s linear forwards;
+	}
+	
+	.coin0 {
+		animation-delay: 0s;
+	}
+	.coin1 {
+		animation-delay: .1s;
+	}
+	.coin2 {
+		animation-delay: .2s;
+	}
+	.coin3 {
+		animation-delay: .3s;
+	}
+	.coin4 {
+		animation-delay: .4s;
+	}
+	.coin5 {
+		animation-delay: .5s;
+	}
+	
+	
+	main {
+		padding: 30px;
+	}
+	
+	.xscroll-box {
+		display: flex;
+		width: 100%;
+		overflow-x: scroll;
+	}
+	.xscroll-box > li {
+		flex-shrink: 0;
+		width: 200px;
+		height: 100px;
+		background-color: yellowgreen;
+		margin-right: 10px;
+		margin-bottom: 50px;
+	}
+	
+	@keyframes fly-coin {
+		from {
+			top: 50vh;
+			left: 50vw;
+			transform: scale(1);
+		}
+		to {
+			top: 0;
+			left: 0;
+			transform: scale(0.6);
+		}
+	}
+	
+	.video-wrap {
+		padding: 50px 0;
+	}
+}

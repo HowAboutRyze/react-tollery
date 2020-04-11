@@ -1,0 +1,8 @@
+.page-list {
+  height: 300px;
+  overflow-y: auto;
+  .list-item {
+    border-bottom: 1px solid #eee;
+    padding-left: 10px;
+  }
+}
