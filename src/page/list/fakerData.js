@@ -1,13 +1,13 @@
 import faker from 'faker/locale/zh_CN'
 
-const pageSize = 200
+// const pageSize = 200
 const host = 'http://picsum.photos'
 
 const words = []
 const paragraphs = []
 const images = []
 
-function fakerData (start = 0, useImage = true) {
+function fakerData (start = 0, pageSize, useImage = true) {
   const a = []
   for (let i = start; i < start + pageSize; i++) {
     const rw = (1 + Math.random()) * 100

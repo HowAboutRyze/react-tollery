@@ -1,8 +1,27 @@
-.page-list {
+.virtual-list {
   height: 300px;
-  overflow-y: auto;
-  .list-item {
-    border-bottom: 1px solid #eee;
-    padding-left: 10px;
+  overflow: hidden; // 防止列表下拉的时候底部也出去了
+  .page-list {
+    height: 300px;
+    overflow-y: auto;
+    position: relative;
+    .hidden-list { // 隐藏用于加载测量的列表
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: -10000;
+      height: 1px;
+      overflow-y: auto;
+      opacity: 0;
+    }
+    .list-item {
+      border-bottom: 1px solid #eee;
+      padding-left: 10px;
+      padding-bottom: 10px;
+      p:first-child {
+        color: #999;
+      }
+    }
   }
 }

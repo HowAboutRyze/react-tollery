@@ -13,7 +13,7 @@ export default class Item extends Component {
 
     return (
       <div className='list-item' style={{ height: 'auto' }} ref={node => { this.node = node }}>
-        <p>#${index} {item.words}</p>
+        <p>#{index} {item.words}说：</p>
         <p>{item.paragraphs}</p>
       </div>
     )
