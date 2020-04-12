@@ -27,6 +27,7 @@ class List extends React.Component {
     this.scrollTop = 0
 
     this.listRef = null
+    this.scrollTimer = null;
     // this.doc = null
     // 缓存已渲染元素的位置信息
     this.cache = []
@@ -117,6 +118,8 @@ class List extends React.Component {
           }
         }, 300);
       });
+    } else {
+      this.listRef.style.transform = 'translateY(0px)';
     }
     this.beginPagY = 0;
     this.currentPos = 0;
@@ -171,6 +174,17 @@ class List extends React.Component {
         this.updateVisibleData()
       }
     }
+
+    clearTimeout(this.scrollTimer);
+    this.scrollTimer = setTimeout(() => {
+      // 滚动停止
+      if (this.scrollTop === scrollTop) {
+        // 若滚动太快来不及渲染item，容易导致滚动到白屏部位，进行滚动校正
+        if (scrollTop > this.anchorItem.bottom) {
+          this.listRef.scrollTo(0, this.anchorItem.top)
+        }
+      }
+    }, 500);
 
     this.scrollTop = scrollTop
   }
