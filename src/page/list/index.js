@@ -175,16 +175,10 @@ class List extends React.Component {
       }
     }
 
-    clearTimeout(this.scrollTimer);
-    this.scrollTimer = setTimeout(() => {
-      // 滚动停止
-      if (this.scrollTop === scrollTop) {
-        // 若滚动太快来不及渲染item，容易导致滚动到白屏部位，进行滚动校正
-        if (scrollTop > this.anchorItem.bottom) {
-          this.listRef.scrollTo(0, this.anchorItem.top)
-        }
-      }
-    }, 500);
+    // 若滚动太快来不及渲染item，容易导致滚动到白屏部位，进行滚动校正
+    if (scrollTop > this.anchorItem.bottom) {
+      this.listRef.scrollTo(0, this.anchorItem.top)
+    }
 
     this.scrollTop = scrollTop
   }
@@ -243,7 +237,7 @@ class List extends React.Component {
               </div>
             </div>
             <div className='wrapper' ref={node => { this.wrapper = node }}>
-              <div style={{ paddingTop: `${startOffset}px`, paddingBottom: `${endOffset}px` }}>
+              <div style={{ paddingTop: `${startOffset}px`, paddingBottom: `${endOffset > 0 ? endOffset : 0}px` }}>
                 {
                   visibleData.map((item, index) => {
                     return (
