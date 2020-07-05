@@ -104,8 +104,8 @@ class Index extends React.Component {
         </main>
         <h2>Router:------------------</h2>
         <ul>
-          <li><a href="#/list">List</a></li>
-          {/* <li><a href="#/inbox">Inbox</a></li> */}
+          <li><a href="#list">List</a></li>
+          <li><a href="#observerlist">observerlist</a></li>
         </ul>
         <p>router end-----------------<br /><br /></p>
         <ChineseName />

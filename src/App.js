@@ -3,6 +3,7 @@ import './App.css';
 
 import Index from './page/index';
 import List from './page/list';
+import ObserverList from './page/observerList';
 
 class App extends React.Component {
 
@@ -24,7 +25,14 @@ class App extends React.Component {
   render() {
     let Child
     switch (this.state.route) {
-      case '/list': Child = List; break;
+      case 'list': {
+        Child = List;
+        break;
+      }
+      case 'observerlist': {
+        Child = ObserverList;
+        break;
+      }
       default: Child = Index;
     }
     return (

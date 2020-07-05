@@ -15,13 +15,14 @@
       overflow-y: auto;
       opacity: 0;
     }
-    .list-item {
-      border-bottom: 1px solid #eee;
-      padding-left: 10px;
-      padding-bottom: 10px;
-      p:first-child {
-        color: #999;
-      }
-    }
+  }
+}
+
+.list-item {
+  border-bottom: 1px solid #eee;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  p:first-child {
+    color: #999;
   }
 }

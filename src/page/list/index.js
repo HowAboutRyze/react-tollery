@@ -4,6 +4,11 @@ import fakerData from './fakerData'
 
 import Item from './Item'
 
+/**
+ * 记录每个列表元素的高度和序号，动态移除列表元素，并使用列表的 paddingTop 和 paddingBottom 进行占位
+ * 优化长列表性能
+ */
+
 const estimatedItemHeight = 80
 const bufferSize = 5
 const loadNum = 20; // 一次加载多少条
@@ -215,7 +220,7 @@ class List extends React.Component {
 
     return (
       <div className="big-page-list" style={{ marginTop: '50px' }}>
-        <div style={{ height: '100px', background: 'red' }} ></div>
+        <div style={{ height: '100px', background: 'red' }}></div>
 
         {/* 虚拟列表 start */}
         <div className="virtual-list">
