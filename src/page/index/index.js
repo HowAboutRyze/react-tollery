@@ -106,6 +106,11 @@ class Index extends React.Component {
         <ul>
           <li><a href="#list">List</a></li>
           <li><a href="#observerlist">observerlist</a></li>
+          <li>card list ======= start</li>
+          <li><a href="#cardListEvent">card list event</a></li>
+          <li><a href="#cardListTimeout">card list timeout</a></li>
+          <li><a href="#cardListObserver">card list observer</a></li>
+          <li>card list ======= end</li>
         </ul>
         <p>router end-----------------<br /><br /></p>
         <ChineseName />

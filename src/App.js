@@ -4,6 +4,9 @@ import './App.css';
 import Index from './page/index';
 import List from './page/list';
 import ObserverList from './page/observerList';
+import CardListEvent from './page/cardListEvent';
+import CardListTimeout from './page/cardListTimeout';
+import CardListObserver from './page/cardListObserver';
 
 class App extends React.Component {
 
@@ -31,6 +34,18 @@ class App extends React.Component {
       }
       case 'observerlist': {
         Child = ObserverList;
+        break;
+      }
+      case 'cardListEvent': {
+        Child = CardListEvent;
+        break;
+      }
+      case 'cardListTimeout': {
+        Child = CardListTimeout;
+        break;
+      }
+      case 'cardListObserver': {
+        Child = CardListObserver;
         break;
       }
       default: Child = Index;

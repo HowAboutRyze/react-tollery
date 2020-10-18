@@ -1,0 +1,19 @@
+.list-item {
+  border-bottom: 1px solid #eee;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  p:first-child {
+    color: #999;
+  }
+  .img-wrap {
+    height: 100px;
+    width: 100px;
+    &.gray-bg {
+      background-color: #ccc;
+    }
+    > img {
+     width: 100%; 
+     height: 100%; 
+    }
+  }
+}
